@@ -4,7 +4,7 @@ Welcome to the 2048 game project! This is a simple implementation of the popular
 
 ## Live Demo
 
-You can play the game live at [https://dmotorina.github.io/2048](https://dmotorina.github.io/2048/)
+You can play the game live at [2048-bice-three.vercel.app](2048-bice-three.vercel.app)
 
 ## Commands
 
