@@ -35,8 +35,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                {from: 'public/favicon.ico', to: 'favicon.ico'},
-                {from: 'public/index.html', to: 'index.html'},
+                {from: 'src/index.html', to: 'index.html'},
                 {from: 'src/style.css', to: 'style.css'},
             ],
         }),
