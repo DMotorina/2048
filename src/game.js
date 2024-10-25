@@ -1,6 +1,5 @@
 import Renderer from './renderer/renderer.js';
 import TilesState from './tilesState.js';
-import Score from './score.js';
 import { GRID_SIZE, SCORE_FOR_WIN } from './constants.js';
 import { move } from './moving.js';
 
