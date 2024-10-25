@@ -1,42 +1,45 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const webpack = require('webpack');
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/game.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    compress: true,
-    port: 9000, 
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/, 
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader', 
-          options: {
-            presets: ['@babel/preset-env'], 
-          },
+    entry: './src/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
         },
-      },
-      {
-        test: /\.css$/, 
-        use: ['style-loader', 'css-loader'], 
-      },
+        port: 9000,
+        open: true,
+        hot: true,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader'],
+            },
+        ],
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: 'public/favicon.ico', to: 'favicon.ico'},
+                {from: 'public/index.html', to: 'index.html'},
+                {from: 'src/style.css', to: 'style.css'},
+            ],
+        }),
     ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html', 
-    }),
-  ],
-  devtool: 'source-map',
+    mode: 'development',
 };
