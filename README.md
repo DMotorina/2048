@@ -4,7 +4,7 @@ Welcome to the 2048 game project! This is a simple implementation of the popular
 
 ## Live Demo
 
-You can play the game live at [https://2048-aa2pak6ia-dmotorinas-projects.vercel.app/](https://2048-aa2pak6ia-dmotorinas-projects.vercel.app/)
+You can play the game live at [https://2048-bice-three.vercel.app/](https://2048-bice-three.vercel.app/)
 
 ## Commands
 
